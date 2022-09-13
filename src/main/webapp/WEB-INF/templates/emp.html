@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>goods</title>
+</head>
+<body>
+<table style="font-size: 30px; width: 80vw" border="1px">
+    <thead>
+    <tr>
+        <th>流水号</th>
+        <th>员工姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>邮箱</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="emp,status : ${page.list}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${emp.empName}"></td>
+        <td th:text="${emp.age}"></td>
+        <td th:text="${emp.sex}"></td>
+        <td th:text="${emp.email}"></td>
+        <td>
+            <a href="">删除</a>
+            <a href="">修改</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div style="text-align:center;">
+    <a th:if="${page.hasPreviouspage}" th:href="@{/employee/page/1}">首页</a>
+    <a th:if="${page.hasPreviouspage}" th:href="@{'/employee/page/'+${page.prepage}}">首页</a>
+    <a th:if="${page.hasNextPage}" th:href="@{'/employee/page/'+${page.nextpage}}">上一页</a>
+    <a th:if="${page.hasNextpage}" th:href="@{'/employee/page/'+${page.pages}}">尾页</a>
+</div>
+</div>
+<div class="layui-footer"></div>
+</div>
+</body>
+</html>
