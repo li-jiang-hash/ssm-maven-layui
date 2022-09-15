@@ -1,66 +1,127 @@
 package com.aaa.ssm.pojo;
 
-/**
- * @Author:江Sir
- * @Date:22 2022/08/22 19:09
- * @description: Exercise
- * @Version 1.0.0
- */
+
 public class User {
-    private Integer userId;
-    private String userName;
-    private String loginAccount;
-    private String loginPassword;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", loginAccount='" + loginAccount + '\'' +
-                ", loginPassword='" + loginPassword + '\'' +
-                '}';
-    }
+  private long id;
+  private String username;
+  private String password;
+  private long sex;
+  private java.sql.Date birthday;
+  private String phone;
+  private String email;
+  private String address;
+  private long status;
+  private long roleId;
+  private java.sql.Timestamp createTime;
+  private String note;
 
-    public User() {
-    }
 
-    public User(Integer userId, String userName, String loginAccount, String loginPassword) {
-        this.userId = userId;
-        this.userName = userName;
-        this.loginAccount = loginAccount;
-        this.loginPassword = loginPassword;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public Integer getUserId() {
-        return userId;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
-    public String getUserName() {
-        return userName;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getLoginAccount() {
-        return loginAccount;
-    }
 
-    public void setLoginAccount(String loginAccount) {
-        this.loginAccount = loginAccount;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public String getLoginPassword() {
-        return loginPassword;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public void setLoginPassword(String loginPassword) {
-        this.loginPassword = loginPassword;
-    }
+
+  public long getSex() {
+    return sex;
+  }
+
+  public void setSex(long sex) {
+    this.sex = sex;
+  }
+
+
+  public java.sql.Date getBirthday() {
+    return birthday;
+  }
+
+  public void setBirthday(java.sql.Date birthday) {
+    this.birthday = birthday;
+  }
+
+
+  public String getPhone() {
+    return phone;
+  }
+
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+
+  public long getStatus() {
+    return status;
+  }
+
+  public void setStatus(long status) {
+    this.status = status;
+  }
+
+
+  public long getRoleId() {
+    return roleId;
+  }
+
+  public void setRoleId(long roleId) {
+    this.roleId = roleId;
+  }
+
+
+  public java.sql.Timestamp getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(java.sql.Timestamp createTime) {
+    this.createTime = createTime;
+  }
+
+
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
 }

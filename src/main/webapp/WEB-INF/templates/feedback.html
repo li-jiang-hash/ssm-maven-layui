@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{static/layui/css/layui.css}" type="text/css"/>
+    <script th:src="@{/static/layui/layui.js}"></script>
+    <style>
+        *::selection{
+            background-color: #bbffaa;
+        }
+        tr > td {
+            padding: 0 5px;
+            text-align: center;
+        }
+        div>a，
+        div>span>a{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<!--<table class="layui-hide" id="test"></table>-->
+<!--<script type="text/javascript">-->
+<!--    layui.use('table', function(){-->
+<!--        var table = layui.table;-->
+<!--        table.render({-->
+<!--            elem: '#test'-->
+<!--            ,url: 'feedback'-->
+<!--            // ,method: 'POST'-->
+<!--            ,page: true //开启分页-->
+<!--            ,totalRow: true-->
+<!--            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增-->
+<!--            ,cols: [[-->
+<!--                // {-->
+<!--                //     field: 'tblQuestionFpas.id',-->
+<!--                //     title: 'ID',-->
+<!--                //     width: 80,-->
+<!--                //     sort: true,-->
+<!--                //     fixed:'left',-->
+<!--                //     templet:function (e) {-->
+<!--                //         return '<span style="color: #c00;">'+ tblQuestionFpas.id+'</span>'-->
+<!--                //     }-->
+<!--                //-->
+<!--                // }-->
+<!--                {field:'id',width:100, title: '部门ID', sort: true}-->
+<!--                ,{field:'question', width:120, title: '部门名称',sort: true}-->
+<!--                ,{field:'optionA', width:100, title: '显示顺序', sort: true}-->
+<!--                ,{field:'optionB', width:120, title: '部门状态',sort: true}-->
+<!--                ,{field:'optionC', width:120, title: '删除标志',sort: true}-->
+<!--                ,{field:'optionD', width:100,title: '创建者', sort: true}-->
+<!--                ,{field:'type', width:170,title: '创建时间', sort: true}-->
+<!--                ,{field:'status', width:120,title: '状态',sort: true}-->
+<!--                ,{field:'createTime', width:120, title: '更新时间', sort: true}-->
+<!--                ,{field:'createBy', width:120, title: '创建者', sort: true}-->
+<!--                ,{field:'updateTime', width:120, title: '更新者', sort: true}-->
+<!--                ,{field:'updateBy', width:120, title: '更新时间', sort: true}-->
+<!--                ,{field:'flag', width:120, title: '标志', sort: true}-->
+<!--            ]]-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<table class="layui-table" style="border-color: #0F0" border="1" cellspacing="0" cellpadding="0">
+    <colgroup>
+        <col width="40">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+        <col width="160">
+    </colgroup>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>问题</th>
+        <th>评价A</th>
+        <th>评价B</th>
+        <th>评价C</th>
+        <th>评价D</th>
+        <th>类型</th>
+        <th>状态</th>
+        <th>创建时间</th>
+        <th>创建人</th>
+        <th>更新时间</th>
+        <th>更新人</th>
+        <th>标志</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tblQuestionFpa,status : ${page.list}">
+        <td th:text="${tblQuestionFpa.id}"></td>
+        <td th:text="${#strings.abbreviate(tblQuestionFpa.question,9)}"></td>
+        <td th:text="${#strings.abbreviate(tblQuestionFpa.optionA,8)}"></td>
+        <td th:text="${#strings.abbreviate(tblQuestionFpa.optionB,8)}"></td>
+        <td th:text="${#strings.abbreviate(tblQuestionFpa.optionC,8)}"></td>
+        <td th:text="${#strings.abbreviate(tblQuestionFpa.optionD,8)}"></td>
+        <td th:text="${tblQuestionFpa.type}"></td>
+        <td th:text="${tblQuestionFpa.status}"></td>
+        <td th:text="${tblQuestionFpa.createTime}"></td>
+        <td th:text="${tblQuestionFpa.createBy}"></td>
+        <td th:text="${tblQuestionFpa.updateTime}"></td>
+        <td th:text="${tblQuestionFpa.updateBy}"></td>
+        <td th:text="${tblQuestionFpa.flag}"></td>
+        <td lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></td>
+    </tr>
+    </tbody>
+</table>
+<div style="text-align: center">
+    <a th:if="${page.hasPreviousPage}" th:href="@{/feedback/1}">首頁</a>
+    <a th:if="${page.hasPreviousPage}" th:href="@{'/feedback/'+${page.prePage}}">上一頁</a>
+
+    <span th:each="num : ${page.navigatepageNums}">
+    <a th:if="${page.pageNum == num}" style="color: deepskyblue;font-size: 22px" th:href="@{'/feedback/'+${num}}" th:text="'['+${num}+']'"></a>
+    <a th:if="${page.pageNum != num}" th:href="@{'/feedback/'+${num}}" th:text="${num}"></a>
+    </span>
+
+    <a th:if="${page.hasNextPage}" th:href="@{'/feedback/'+${page.nextPage}}">下一頁</a>
+    <a th:if="${page.hasNextPage}" th:href="@{'/feedback/'+${page.pages}}">尾頁</a>
+</div>
+</body>
+</html>

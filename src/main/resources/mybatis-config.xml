@@ -7,8 +7,4 @@
         <!--将下划线映射为驼峰-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
-<!--    <plugins>-->
-<!--        &lt;!&ndash;配置分页插件&ndash;&gt;-->
-<!--        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>-->
-<!--    </plugins>-->
 </configuration>

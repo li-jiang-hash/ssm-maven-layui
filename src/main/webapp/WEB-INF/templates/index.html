@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{static/layui/css/layui.css}"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" th:href="@{/static/layui/css/layui.css}"/>
+    <link rel="shortcut icon" th:href="@{/static/icon/4.ico}" type="image/x-icon" />
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo layui-hide-xs layui-bg-black">水果管理系统</div>
+        <div class="layui-logo layui-hide-xs layui-bg-black">AAA后台管理系统</div>
         <!-- 头部区域（可配合layui 已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <!-- 移动端显示 -->
@@ -33,12 +34,12 @@
                 <a href="javascript:;">
                     <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
                          class="layui-nav-img"/>
-                    <!--                    <span th:text="${session.loginInfo.getUserName()}" style="padding-right: 10px"></span>-->
+<!--                    <span th:text="${session.loginInfo.getUserName()}" style="padding-right: 10px"></span>-->
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="">配置</a></dd>
                     <dd><a href="">设置</a></dd>
-                    <!--                    <dd><a th:href="@{/auth?method=logout}">退出登录</a></dd>-->
+<!--                    <dd><a th:href="@{/auth?method=logout}">退出登录</a></dd>-->
                 </dl>
             </li>
             <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
@@ -56,10 +57,10 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">系统管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a th:href="@{/emp/1}" target="ifm">emp列表</a></dd>
+                        <dd><a th:href="@{/feedback/1}" target="ifm">AAA考题</a></dd>
                         <dd><a href="">待开发</a></dd>
-<!--                        <dd><a href="" target="ifm">待开发</a></dd>-->
-<!--                        <dd><a href="" target="ifm">待开发</a></dd>-->
+                        <dd><a href="" target="ifm">待开发</a></dd>
+                        <dd><a href="" target="ifm">待开发</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -78,36 +79,13 @@
     </div>
 
     <div class="layui-body">
-
-        <iframe id="ifm" name="ifm" style="width: 80vw;height: 400px;"></iframe>
-        <!--        <h1 th:if="${#lists.isEmpty(goodsList)}" style="color: #F00">对不起，目前还没有库存</h1>-->
-        <!--        <a th:if="${#lists.isEmpty(goodsList)}" style="display: block;padding:200px 0 0 200px;color: #F00" th:href="@{/add.do}">添加新库存</a>-->
-        <!--        <table th:if="${not #lists.isEmpty(goodsList)}" style="font-size: 30px; width: 80vw" border="1px"-->
-        <!--               cellspacing="0">-->
-        <!--            <tr th:each="goodslist : ${goodsList}">-->
-        <!--                &lt;!&ndash;                <td style="text-align: center"><a th:text="${goodslist.goodName}" th:href="@{'/edit.do?gid='+${goodslist.goodId}}"></a></td>&ndash;&gt;-->
-        <!--                <td style="text-align: center"><a th:text="${goodslist.goodName}" th:href="|@{edit.do(gid=${goodslist.goodId})}|"></a></td>-->
-        <!--                <td style="text-align: center"><span th:text="${goodslist.goodPrice}"></span></td>-->
-        <!--                <td style="text-align: center"><span th:text="${goodslist.goodSlogan}"></span></td>-->
-        <!--                <td style="text-align: center;">-->
-        <!--                    <button type="button" class="layui-btn layui-btn-sm">-->
-        <!--                        <a class="layui-icon"  th:href="@{/add.do}">&#xe654;</a>-->
-        <!--                    </button>-->
-        <!--                    <a th:href="|@{edit.do(gid=${goodslist.goodId})}|" class="layui-btn layui-btn-sm">-->
-        <!--                        <i class="layui-icon">&#xe642;</i>-->
-        <!--                    </a>-->
-        <!--                    <button type="button" class="layui-btn layui-btn-sm">-->
-        <!--                        &lt;!&ndash;                        <i class="layui-icon" th:onclick="'delFruit('+${goodslist.goodId}+')'">&#xe640;</i>&ndash;&gt;-->
-        <!--                        <i class="layui-icon" th:onclick="|delFruit(${goodslist.goodId})|">&#xe640;</i>-->
-        <!--                    </button>-->
-        <!--                </td>-->
-        <!--            </tr>-->
-
+        <iframe src="" name="ifm" frameborder="0" style="width: 85vw;height: 600px"></iframe>
     </div>
-    <div class="layui-footer"></div>
+
+    <div class="layui-footer" style="text-align: center;color: #0F0">版权©归&nbsp;&nbsp;李江&nbsp;&nbsp;所有&nbsp;&nbsp;&nbsp;&nbsp;2022-09-13</div>
 </div>
 
-<script th:src="@{static/layui/layui.js}"></script>
+<script th:src="@{/static/layui/layui.js}"></script>
 <script>
     //JS
     layui.use(["element", "layer", "util"], function () {
@@ -115,7 +93,6 @@
             layer = layui.layer,
             util = layui.util,
             $ = layui.$
-
         //头部事件
         util.event("lay-header-event", {
             //左侧菜单事件
@@ -134,10 +111,9 @@
             },
         })
     })
-
-    function delFruit(gid) {
-        if (confirm("是否确认删除？")) {
-            window.location.href = 'del.do?gid=' + gid;
+    function delFruit(gid){
+        if(confirm("是否确认删除？")){
+            window.location.href = 'del.do?gid='+gid;
         }
     }
 </script>
